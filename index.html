@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en"> <!--Test-->
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+
 	<link rel="stylesheet" href="css/style.css">
   <title>Home</title>
 </head>
@@ -15,40 +17,50 @@
   <div class="container">
 
     <button class="navbar-toggler" type="button"
-      data-toggle="collapse" data-target="#myTogglerNav"
+      data-toggle="collapse" data-target=".navbar-collapse"
       aria-controls="myTogglerNav"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a href="#" class="navbar-brand">SwimOLY</a>
+    <a href="index.html" class="navbar-brand"><img src="image/Logo2.png" alt="Logo"></a>
 
     <div class="collapse navbar-collapse" id="myTogglerNav">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home</a>
+        <a class="nav-item nav-link active" href="index.html">Home</a>
         <a class="nav-item nav-link active" href="#">Workouts</a>
         <a class="nav-item nav-link active" href="#">Technique</a>
         <a class="nav-item nav-link active" href="#">Nutrition</a>
         <a class="nav-item nav-link active" href="#">Coaches</a>
-		  <a class="nav-item nav-link active" href="#">My Account</a>
       </div><!-- navbar -->      
     </div><!-- collapse -->
-
-  </div><!-- container -->
+	  
+	  <div class="collapse navbar-collapse" id="myTogglerNav2">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="Account.html">Account</a>
+                </li>
+               
+                <li class="nav-item cart">
+                  <a data-toggle="modal" data-target="#cart" class="nav-link"><span>Cart</span></a>
+                </li>
+              </ul>
+            </div>
+</div>
 </nav><!-- nav -->
 	
 	<!-- slider -->
 <div id="carouselControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="image/1890_new.jpg" alt="First slide">
+      <img class="d-block w-100" src="image/slideshow1.jpg" alt="First slide">
 		<div class="caption thumbnail text-center">
             <h1>MEET YOUR VIRTUAL COACH</h1>
 			<a href="#" class="btn" style="background-color: white;">SHOP NOW</a>
         </div>
 	  </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="image/pool1.jpg" alt="Second slide">
+      <img class="d-block w-100" src="image/slideshow2.jpg" alt="Second slide">
 		<div class="caption thumbnail text-center">
             <h1>SWIM ANYWHERE</h1>
 			<a href="#" class="btn" style="background-color: white;">SHOP NOW</a>
@@ -56,7 +68,7 @@
     </div>
 	  
     <div class="carousel-item">
-      <img class="d-block w-100" src="image/pool2.jpg" alt="Third slide">
+      <img class="d-block w-100" src="image/slideshow3.jpg" alt="Third slide">
 		<div class="caption thumbnail text-center">
             <h1>SWIM ANYTIME</h1>
 			<a href="#" class="btn" style="background-color: white;">SHOP NOW</a>
@@ -107,10 +119,10 @@
 	 <div class="container">
 	<div class="card-deck">
   <div class="card">
-    <img class="card-img-top" src="image/nutrition.jpg" alt="Nutrition">
+    <img class="card-img-top" src="image/blog1.jpg" alt="Blog1">
     <div class="card-body">
-      <h5 class="card-title">HOW TO EAT HEALTHY</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="card-title">HOW TO MASTER A BACKSTROKE START</h4>
+      <p class="card-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p>
 		<a href="#" class="btn" style="background-color: #014b6b; color: white;">READ MORE</a>
     </div>
     <div class="card-footer">
@@ -118,10 +130,10 @@
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="image/nutrition1.jpg" alt="nutriton2">
+    <img class="card-img-top" src="image/blog2.jpg" alt="blog2">
     <div class="card-body">
-      <h5 class="card-title">LEAR HOW TO SWIM</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="card-title">SMOOTHIES THAT WILL HELP YOU SWIM FASTER</h4>
+      <p class="card-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p>
 		<a href="#" class="btn" style="background-color: #014b6b; color: white;">READ MORE</a>
     </div>
     <div class="card-footer">
@@ -129,10 +141,10 @@
     </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="image/nutrition3.jpg" alt="nutrition3">
+    <img class="card-img-top" src="image/blog3.jpg" alt="blog3">
     <div class="card-body">
-      <h5 class="card-title">HOW TO TRAIN LIKE A PRO</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="card-title">HOW TO EAT BETTER</h4>
+      <p class="card-text">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p>
 		<a href="#" class="btn" style="background-color: #014b6b; color: white;">READ MORE</a>
     </div>
     <div class="card-footer">
@@ -142,48 +154,124 @@
 </div>
 </div>	
 	
+<br>
+<!-- Footer -->
+<footer class="page-footer font-small stylish-color-dark pt-4" style="background-color: #014b6b;">
 
-	<!-- Footer -->
-<footer class="page-footer font-small" style="background-color: #014b6b;">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
 
-  <!-- Footer Elements -->
-  <div class="container">
-
-    <!-- Grid row-->
+    <!-- Grid row -->
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-12 py-5">
-        <div class="mb-5 flex-center">
+      <div class="col-md-4 mx-auto">
 
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-        </div>
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address</h5>
+        <p>2800 xxxx, Nashville, TN</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
       </div>
       <!-- Grid column -->
 
     </div>
-    <!-- Grid row-->
+    <!-- Grid row -->
 
   </div>
-  <!-- Footer Elements -->
+  <!-- Footer Links -->
 
+
+  <hr>
+	  <!-- Social buttons -->
+	<ul class="list-unstyled list-inline text-center text-white">
+		<li class="list-inline-item">
+	        <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+			<a href="#" class="fa fa-instagram"></a>
+			<a href="#" class="fa fa-youtube"></a>
+    </li>
+  </ul>
+  <!-- End Social buttons -->
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3" style="color: white;">© 2019 Copyright:
+  <div class="footer-copyright text-center py-3 text-white">© 2019 Copyright:
     <a href="#"> SwimOLY</a>
   </div>
   <!-- Copyright -->
