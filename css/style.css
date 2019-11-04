@@ -10,9 +10,16 @@
     left: 0;
     width: 100%;
 }
+a{
+	color:white;
+}
+a:hover{
+	color:#8bc34a;
+	text-decoration: none;
+}
 
-h1, h5{
-	font: 500;
+h1{
+	font-weight: 800;
 	color: white;
 }
 h4{
@@ -20,15 +27,18 @@ h4{
 	font-size: 20px;
 	font-weight: 800;
 }
+h5{
+	font-size: 16px;
+	color:white;
+}
 
 h2{
 	font:300;
 	color:white;
 }
 
-.text-center {
-  text-align: center !important; }
 
+/* Categories */
 
 .hovereffect {
   width: 100%;
@@ -176,9 +186,7 @@ h2{
     .show > .btn-outline-white.dropdown-toggle:focus {
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
 
-.nav .lavalamp-object {
-    display: none;
-    z-index: 10; }
+/* hero account */
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.625rem 1.25rem;
@@ -190,38 +198,7 @@ h2{
     padding-top: 8.75rem;
     padding-bottom: 3.75rem; }
 
-@media (min-width: 768px) {
-  .text-md-left {
-    text-align: left !important; }
-  .text-md-right {
-    text-align: right !important; }
-  .text-md-center {
-    text-align: center !important; } }
-
-@media (min-width: 768px) {
-  .text-md-left {
-    text-align: left !important; }
-  .text-md-right {
-    text-align: right !important; }
-  .text-md-center {
-    text-align: center !important; } }
-
-@media (min-width: 1200px) {
-  .text-lg-left {
-    text-align: left !important; }
-  .text-lg-right {
-    text-align: right !important; }
-  .text-lg-center {
-    text-align: center !important; } }
-
-@media (min-width: 1600px) {
-  .text-xl-left {
-    text-align: left !important; }
-  .text-xl-right {
-    text-align: right !important; }
-  .text-xl-center {
-    text-align: center !important; } }
-
+/* social media */
 .fa {
   padding: 10px;
   font-size: 30px;
@@ -230,13 +207,12 @@ h2{
   text-decoration: none;
 }
 
-/* Add a hover effect if you want */
+
 .fa:hover {
   opacity: 0.7;
 	color: white;
 }
 
-/* Set a specific color for each brand */
 
 /* Facebook */
 .fa-facebook {
@@ -253,3 +229,14 @@ h2{
 .fa-youtube {
   color: white;
 }
+
+/* image*/
+
+.image{
+	background-image:url("../image/slideshow1.jpg");	
+	height: 600px;
+	 background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+  
