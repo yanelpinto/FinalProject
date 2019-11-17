@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/Chart.js"></script>
   <title>Account</title>
 </head>
 <body>
@@ -69,15 +70,83 @@
                 <div class="col-xs-12 ">
                   <nav>
                     <div class="nav nav-tabs " id="nav-tab" role="tablist">
+					<a class="nav-item nav-link text-black-50" id="nav-dash-tab" data-toggle="tab" href="#nav-dash" role="tab" aria-controls="nav-dash" aria-selected="false">Dashboard</a>
                       <a class="nav-item nav-link text-black-50" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
                       <a class="nav-item nav-link text-black-50" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Payments</a>
                       <a class="nav-item nav-link text-black-50" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Coach</a>
                       <a class="nav-item nav-link text-black-50" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Library</a>
                     </div>
                   </nav>
-                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-						 <div class="row">
+								
+					
+     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+		 
+		 <div class="tab-pane fade" id="nav-dash" role="tabpanel" aria-labelledby="nav-dash-tab">
+			 <p>ACHIEVEMENTS</p>
+			<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <img src="Achivements/icon2.png" alt=""/>
+    </div>
+    <div class="col-sm">
+     <img src="Achivements/icon3.png"  alt=""/>
+    </div>
+    <div class="col-sm">
+      <img src="Achivements/icon4.png"  alt=""/>
+    </div>
+  </div>
+</div>
+		<hr>
+			
+					
+                     <p>STATS</p>
+		
+			 <div class="container">
+<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6'],
+        datasets: [{
+            label: 'Total of Yards',
+            data: [6000, 15000, 18500, 15000, 20000, 16000],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+			 
+      </div>	
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+	<div class="row">
   		
 
       <div class="text-center">
@@ -134,95 +203,269 @@
                      <p>COMMING SOON!</p>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                     COMMING SOON!
+                     <h4>Welcome to Swim Pace Calculator</h4>
+						<p>This swim pace calculator takes the vague terms like "T-pace", "Easy", "Moderate", and "All Out" and turns them into specific times for you to be able to use for your swim workout.<hr>
+						 <b>Select distance in yards, meters, miles, or Km, enter your best time, then click Calculate.</b></p>
+						<script>
+		function CalcSwimmingPace(form) {
+
+    var Distance = 0;
+    if (form.Units.value == "miles")
+        Distance = form.Distance.value * 1760;
+    else if (form.Units.value == "meters")
+        Distance = form.Distance.value * 1.094;
+    else if (form.Units.value == "kilometers")
+        Distance = form.Distance.value * 1094;
+    else 
+        Distance = form.Distance.value * 1;
+
+    var Time = form.Hours.value * 3600 + form.Minutes.value * 60 + form.Seconds.value * 1;
+
+
+    var TPaceYards = 100 * Time / Distance;
+    var TPaceMeters = 100 * Time / (Distance * 0.914);
+
+
+    form.Zone2Yards.value = SecondsToTimeString(TPaceYards + 10);
+    form.Zone2Meters.value = SecondsToTimeString(TPaceMeters + 10);
+
+    form.Zone3Yards.value = SecondsToTimeString(TPaceYards + 5);
+    form.Zone3Meters.value = SecondsToTimeString(TPaceMeters + 4);
+
+    form.Zone4Yards.value = SecondsToTimeString(TPaceYards);
+    form.Zone4Meters.value = SecondsToTimeString(TPaceMeters);
+
+    form.Zone5aYards.value = SecondsToTimeString(TPaceYards);
+    form.Zone5aMeters.value = SecondsToTimeString(TPaceMeters);
+
+    form.Zone5bYards.value = SecondsToTimeString(TPaceYards - 5);
+    form.Zone5bMeters.value = SecondsToTimeString(TPaceMeters - 5);
+}
+
+function SecondsToTimeString(Seconds) {
+    if (Seconds == Infinity || isNaN(Seconds) || Seconds < 0)
+        return "---";
+
+    var Hours = parseInt(Seconds / 3600);
+    Seconds = Seconds - Hours * 3600;
+
+    var Minutes = parseInt(Seconds / 60);
+    Seconds = parseInt(Seconds - Minutes * 60);
+
+    return (Hours > 0 ? Hours + ":" : "") + (Minutes < 10 && Hours > 0 ? "0" : "") + Minutes + ":" + (Seconds < 10 ? "0" : "") + Seconds;
+}
+	</script>
+
+      <!-- begin Calculator -->
+      <!-- copyright Alp Fitness -->
+      <script language="JavaScript" type="text/javascript" src="../JavaScripts/SwimmingPace.js"></script>
+      <form id="SwimmingPace" action="#">
+        <table cellspacing="5" cellpadding="5">
+          <tr>
+            <td><strong>Distance:</strong></td>
+            <td><input id="Distance" type="text" size="2" maxlength="5" style="background-color: #CCCCCC" />
+                <select name="Units" id="Units" style="background-color: #CCCCCC">
+                  <option value="yards">yards</option>
+                  <option value="miles">miles</option>
+                  <option value="meters">meters</option>
+                  <option value="kilometers">kilometers</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td><strong>Time: </strong></td>
+            <td><input id="Hours" type="text" size="2" maxlength="2" style="background-color: #CCCCCC" />
+              hours
+              <input id="Minutes" type="text" size="2" maxlength="2" style="background-color: #CCCCCC" />
+              mins
+              <input id="Seconds" type="text" size="2" maxlength="2" style="background-color: #CCCCCC" />
+              secs </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input type="button" value="Calculate" onclick="CalcSwimmingPace(this.form)" /></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+          <tr>
+            <td></td>
+            <td><div align="center"><strong> Pace per 100 yards </strong></div></td>
+            <td><div align="center"><strong> Pace per 100 meters </strong></div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#DBE5F1"><div align="center"><strong>Zone 1</strong><br />
+              Very easy effort</div></td>
+            <td bgcolor="#DBE5F1"><div align="center">Very easy </div></td>
+            <td bgcolor="#DBE5F1"><div align="center">Very easy </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#B8CCE4"><div align="center"><strong>Zone 2 </strong><br />
+              T-Pace + 10 sec </div></td>
+            <td bgcolor="#B8CCE4"><div align="center">
+                <input type="text" id="Zone2Yards" size="8" readonly="readonly" />
+            </div></td>
+            <td bgcolor="#B8CCE4"><div align="center">
+                <input type="text" id="Zone2Meters" size="8" readonly="readonly" />
+            </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#95B3D7"><div align="center"><strong>Zone 3 </strong><br />
+              T-Pace + 5 sec </div></td>
+            <td bgcolor="#95B3D7"><div align="center">
+                <input type="text" id="Zone3Yards" size="8" readonly="readonly" />
+            </div></td>
+            <td bgcolor="#95B3D7"><div align="center">
+                <input type="text" id="Zone3Meters" size="8" readonly="readonly" />
+            </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#376091"><div align="center"><strong>Zone 4 </strong><br />
+              T-Pace </div></td>
+            <td bgcolor="#376091"><div align="center">
+                <input type="text" id="Zone4Yards" size="8" readonly="readonly" />
+            </div></td>
+            <td bgcolor="#376091"><div align="center">
+                <input type="text" id="Zone4Meters" size="8" readonly="readonly" />
+            </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#F2DDDC"><div align="center"><strong>Zone 5</strong><br />
+              T-Pace </div></td>
+            <td bgcolor="#F2DDDC"><div align="center">
+                <input type="text" id="Zone5aYards" size="8" readonly="readonly" />
+            </div></td>
+            <td bgcolor="#F2DDDC"><div align="center">
+                <input type="text" id="Zone5aMeters" size="8" readonly="readonly" />
+            </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#E6B9B8"><div align="center"><strong>Zone 5b </strong><br />
+              T-Pace - 5 sec </div></td>
+            <td bgcolor="#E6B9B8"><div align="center">
+                <input type="text" id="Zone5bYards" size="8" readonly="readonly" />
+            </div></td>
+            <td bgcolor="#E6B9B8"><div align="center">
+                <input type="text" id="Zone5bMeters" size="8" readonly="readonly" />
+            </div></td>
+          </tr>
+          <tr>
+            <td bgcolor="#D99795"><div align="center"><strong>Zone 5c </strong><br />
+              All out effort </div></td>
+            <td bgcolor="#D99795"><div align="center">All out </div></td>
+            <td bgcolor="#D99795"><div align="center">All out </div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </form>
+      <!-- end Calculator -->
                     </div>
                     <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-          <!-- Accordion -->
-<div class="container-fluid bg-gray" id="accordion-style-1">
-	<div class="container">
-		<section>
-			<div class="row">
-				<div class="col-12">
-					<h1 class="text-green mb-4 text-center">Frequently Asked Questions</h1>
-				</div>
-				<div class="col-10 mx-auto">
-					<div class="accordion" id="accordionExample">
-						<div class="card">
-							<div class="card-header" id="headingOne">
-								<h5 class="mb-0">
-							<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><img src="image/test1.jpg">
-							 <i class="fa fa-angle-double-right mr-3"></i>Cardio Machine Workout.<p>950 yards | 30 minutes. Freestyle, Beginner </p>
-							</button>
-						  </h5>
-						
-							</div>
-						</div>
-
-							<div id="collapseOne" class="collapse show fade" aria-labelledby="headingOne" data-parent="#accordionExample">
-								<div class="card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.<a href="image/1890.jpg" class="btn  ml-3" style="color:#014b6b;" target="_blank"><strong>Download PDF <i class="fa fa-angle-double-right"></i></strong></a>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header" id="headingTwo">
-								<h5 class="mb-0">
-							<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><img src="image/test1.jpg">
-							 <i class="fa fa-angle-double-right mr-3"></i>Cardio Machine Workout.<p>950 yards | 30 minutes. Freestyle, Beginner </p>
-							</button>
-						  </h5>
-						
-							</div>
-						</div>
-
-							<div id="collapseTwo" class="collapse show fade" aria-labelledby="headingOne" data-parent="#accordionExample">
-								<div class="card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.<a href="image/1890.jpg" class="btn  ml-3" style="color:#014b6b;" target="_blank"><strong>Download PDF <i class="fa fa-angle-double-right"></i></strong></a>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header" id="heading3">
-								<h5 class="mb-0">
-							<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><img src="image/test1.jpg">
-							 <i class="fa fa-angle-double-right mr-3"></i>Cardio Machine Workout.<p>950 yards | 30 minutes. Freestyle, Beginner </p>
-							</button>
-						  </h5>
-						
-							</div>
-						</div>
-
-							<div id="collapse3" class="collapse show fade" aria-labelledby="headingOne" data-parent="#accordionExample">
-								<div class="card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.<a href="image/1890.jpg" class="btn  ml-3" style="color:#014b6b;" target="_blank"><strong>Download PDF <i class="fa fa-angle-double-right"></i></strong></a>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header" id="headingFour">
-								<h5 class="mb-0">
-							<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-							  <i class="fa fa-envelope main"></i><i class="fa fa-angle-double-right mr-3"></i>How to contact us.
-							</button>
-						  </h5>
-							</div>
-							<div id="collapseFour" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionExample">
-								<div class="card-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.<a href="https://www.fiverr.com/sunlimetech/do-web-development-in-pure-php-and-frameworks" class="ml-3" target="_blank"><strong>View More designs <i class="fa fa-angle-double-right"></i></strong></a>
-								</div>
-							</div>
-						</div>
-			</section>	
-					</div>
-		
-				</div>	
-			</div>
-	</div>
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist">
+  <div class="card">
+    <div class="card-header z-depth-1 " style="background-color: #014B6B " role="tab" id="heading96">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a class="white-text font-weight-bold" data-toggle="collapse" href="#collapse96" aria-expanded="true"
+          aria-controls="collapse96">
+          Enhance Speed-Beginner
+        </a>
+      </h5>
+    </div>
+    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+      data-parent="#accordionEx23">
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h4 class="font-weight-bold mb-3 black-text" style="color:#014B6B ">Improve your technique and top end speed in 8 weeks!.</h4>
+            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris</p>
+            <p class="mb-0">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur.</p>
+			  <a class="btn " style="background-color: #014B6B; color: white;" href="#" role="button">Download workouts</a>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img src="image/product-1.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" style="background-color: #014B6B " role="tab" id="heading97">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a class="collapsed font-weight-bold white-text" data-toggle="collapse" href="#collapse97"
+          aria-expanded="false" aria-controls="collapse97">
+          Improve Endurance
+        </a>
+      </h5>
+    </div>
+    <div id="collapse97" class="collapse" role="tabpanel" aria-labelledby="heading97"
+      data-parent="#accordionEx23">
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h4 class="font-weight-bold mb-3 black-text" style="color:#014B6B ">Improve your technique and aerobic capacity in 8 weeks!</h4>
+            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris</p>
+            <p class="mb-0">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur.</p>
+			  <a class="btn " style="background-color: #014B6B; color: white;" href="#" role="button">Download workouts</a>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img src="image/product-2 copy.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" style="background-color: #014B6B " role="tab" id="heading98">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a class="collapsed font-weight-bold white-text" data-toggle="collapse" href="#collapse98"
+          aria-expanded="false" aria-controls="collapse98">
+          Learn How to Swim
+        </a>
+      </h5>
+    </div>
+    <div id="collapse98" class="collapse" role="tabpanel" aria-labelledby="heading98"
+      data-parent="#accordionEx23">
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h4 class="font-weight-bold mb-3 black-text" style="color:#014B6B ">Lear how to swim in 4 weeks!</h4>
+            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris</p>
+            <p class="mb-0">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur.</p>
+			  <a class="btn " style="background-color: #014B6B; color: white;" href="#" role="button">Download workouts</a>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img src="image/product-4.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-</div></div>
-
-				
+</div>
+</div>
+</div>
+</div>
+</div>	
+<!--Accordion wrapper-->
+	
 <br>
 <!-- Footer -->
 <footer class="page-footer font-small stylish-color-dark pt-4" style="background-color: #014b6b;">
